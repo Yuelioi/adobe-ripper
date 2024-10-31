@@ -12,4 +12,9 @@ func Fire(r *gin.Engine) {
 	system.GET("/ping", systemController.Pong)
 	system.GET("/explore", systemController.Explore)
 	system.GET("/trash", systemController.Trash)
+
+	image := r.Group("image")
+	imageController := &controllers.ImageController{}
+	image.GET("/decode", imageController.Decode)
+
 }
